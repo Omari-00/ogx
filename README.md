@@ -1,1 +1,2 @@
-# ogx: SQL-first Golang ORM for openGauss
+# ogx
+SQL-first Golang ORM for openGauss
