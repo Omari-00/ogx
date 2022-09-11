@@ -17,7 +17,7 @@ var ogdialect = New()
 
 func init() {
 	if Version() != ogx.Version() {
-		panic(fmt.Errorf("ogdialect and Bun must have the same version: v%s != v%s",
+		panic(fmt.Errorf("ogdialect and Ogx must have the same version: v%s != v%s",
 			Version(), ogx.Version()))
 	}
 }

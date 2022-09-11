@@ -15,9 +15,9 @@ type QueryHook struct {
 
 var _ ogx.QueryHook = (*QueryHook)(nil)
 
-type nrBunCtxKey string
+type nrOgxCtxKey string
 
-const nrBunSegmentKey nrBunCtxKey = "nrogxsegment"
+const nrOgxSegmentKey nrOgxCtxKey = "nrogxsegment"
 
 // NewQueryHook creates a new ogx.QueryHook which reports database usage
 // information to new relic.
@@ -43,10 +43,10 @@ func (q *QueryHook) BeforeQuery(ctx context.Context, qe *ogx.QueryEvent) context
 		sqlparse.ParseQuery(&segment, qe.Query)
 	}
 	segment.StartTime = newrelic.FromContext(ctx).StartSegmentNow()
-	return context.WithValue(ctx, nrBunSegmentKey, &segment)
+	return context.WithValue(ctx, nrOgxSegmentKey, &segment)
 
 }
 func (q *QueryHook) AfterQuery(ctx context.Context, qe *ogx.QueryEvent) {
-	segment := ctx.Value(nrBunSegmentKey).(*newrelic.DatastoreSegment)
+	segment := ctx.Value(nrOgxSegmentKey).(*newrelic.DatastoreSegment)
 	segment.End()
 }

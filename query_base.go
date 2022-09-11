@@ -145,7 +145,7 @@ func (q *baseQuery) GetTableName() string {
 }
 
 func (q *baseQuery) setConn(db IConn) {
-	// Unwrap Bun wrappers to not call query hooks twice.
+	// Unwrap Ogx wrappers to not call query hooks twice.
 	switch db := db.(type) {
 	case *DB:
 		q.conn = db.DB

@@ -1,9 +1,9 @@
-# Bun migrations example
+# Ogx migrations example
 
 To run migrations:
 
 ```shell
-BUNDEBUG=2 go run . db migrate
+OGXDEBUG=2 go run . db migrate
 ```
 
 To rollback migrations:
@@ -36,10 +36,10 @@ To get help:
 go run . db
 
 NAME:
-   bun db - database commands
+   ogx db - database commands
 
 USAGE:
-   bun db command [command options] [arguments...]
+   ogx db command [command options] [arguments...]
 
 COMMANDS:
    init        create migration tables
@@ -53,5 +53,3 @@ COMMANDS:
 OPTIONS:
    --help, -h  show help (default: false)
 ```
-
-See [docs](https://bun.uptrace.dev/guide/migrations.html) for details.

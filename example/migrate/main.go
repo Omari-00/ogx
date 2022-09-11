@@ -31,7 +31,7 @@ func main() {
 	))
 
 	app := &cli.App{
-		Name: "bun",
+		Name: "ogx",
 
 		Commands: []*cli.Command{
 			newDBCommand(migrate.NewMigrator(db, migrations.Migrations)),

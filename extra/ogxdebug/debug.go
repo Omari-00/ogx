@@ -40,13 +40,13 @@ func WithWriter(w io.Writer) Option {
 }
 
 // FromEnv configures the hook using the environment variable value.
-// For example, WithEnv("BUNDEBUG"):
-//    - BUNDEBUG=0 - disables the hook.
-//    - BUNDEBUG=1 - enables the hook.
-//    - BUNDEBUG=2 - enables the hook and verbose mode.
+// For example, WithEnv("OGXDEBUG"):
+//    - OGXDEBUG=0 - disables the hook.
+//    - OGXDEBUG=1 - enables the hook.
+//    - OGXDEBUG=2 - enables the hook and verbose mode.
 func FromEnv(key string) Option {
 	if key == "" {
-		key = "BUNDEBUG"
+		key = "OGXDEBUG"
 	}
 	return func(h *QueryHook) {
 		if env, ok := os.LookupEnv(key); ok {
