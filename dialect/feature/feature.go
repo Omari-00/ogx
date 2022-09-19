@@ -9,7 +9,6 @@ const (
 	WithValues
 	Returning
 	InsertReturning
-	Output // mssql
 	DefaultPlaceholder
 	DoubleColonCast
 	ValuesRow
