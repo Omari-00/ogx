@@ -6,8 +6,6 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/niconical/ogx/dialect"
-
 	"github.com/niconical/ogx/dialect/feature"
 	"github.com/niconical/ogx/internal"
 	"github.com/niconical/ogx/schema"
@@ -559,27 +557,4 @@ func (q *updateQueryBuilder) WherePK(cols ...string) QueryBuilder {
 
 func (q *updateQueryBuilder) Unwrap() interface{} {
 	return q.UpdateQuery
-}
-
-//------------------------------------------------------------------------------
-
-func (q *UpdateQuery) UseIndex(indexes ...string) *UpdateQuery {
-	if q.db.dialect.Name() == dialect.MySQL {
-		q.addUseIndex(indexes...)
-	}
-	return q
-}
-
-func (q *UpdateQuery) IgnoreIndex(indexes ...string) *UpdateQuery {
-	if q.db.dialect.Name() == dialect.MySQL {
-		q.addIgnoreIndex(indexes...)
-	}
-	return q
-}
-
-func (q *UpdateQuery) ForceIndex(indexes ...string) *UpdateQuery {
-	if q.db.dialect.Name() == dialect.MySQL {
-		q.addForceIndex(indexes...)
-	}
-	return q
 }

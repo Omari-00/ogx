@@ -15,7 +15,7 @@ type Item struct {
 }
 
 func main() {
-	connStr := "host=192.168.20.40 port=26000 user=cuih password=Gauss@123 dbname=test sslmode=disable"
+	connStr := "host=127.0.0.1 port=26000 user=cuih password=Gauss@123 dbname=test sslmode=disable"
 	opengaussdb, err := sql.Open("opengauss", connStr)
 	if err != nil {
 		panic(err)

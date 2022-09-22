@@ -218,14 +218,6 @@ func (q *InsertQuery) appendColumnsValues(
 			b = append(b, ")"...)
 		}
 
-		if q.hasFeature(feature.Output) && q.hasReturning() {
-			b = append(b, " OUTPUT "...)
-			b, err = q.appendOutput(fmter, b)
-			if err != nil {
-				return nil, err
-			}
-		}
-
 		b = append(b, " SELECT "...)
 
 		if q.columns != nil {
@@ -266,14 +258,6 @@ func (q *InsertQuery) appendColumnsValues(
 	b = append(b, " ("...)
 	b = q.appendFields(fmter, b, fields)
 	b = append(b, ")"...)
-
-	if q.hasFeature(feature.Output) && q.hasReturning() {
-		b = append(b, " OUTPUT "...)
-		b, err = q.appendOutput(fmter, b)
-		if err != nil {
-			return nil, err
-		}
-	}
 
 	b = append(b, " VALUES ("...)
 
@@ -552,7 +536,7 @@ func (q *InsertQuery) Exec(ctx context.Context, dest ...interface{}) (sql.Result
 	var res sql.Result
 
 	if hasDest := len(dest) > 0; hasDest ||
-		(q.hasReturning() && q.hasFeature(feature.InsertReturning|feature.Output)) {
+		(q.hasReturning() && q.hasFeature(feature.InsertReturning)) {
 		model, err := q.getModel(dest)
 		if err != nil {
 			return nil, err
@@ -602,7 +586,6 @@ func (q *InsertQuery) afterInsertHook(ctx context.Context) error {
 
 func (q *InsertQuery) tryLastInsertID(res sql.Result, dest []interface{}) error {
 	if q.db.features.Has(feature.Returning) ||
-		q.db.features.Has(feature.Output) ||
 		q.table == nil ||
 		len(q.table.PKs) != 1 ||
 		!q.table.PKs[0].AutoIncrement {

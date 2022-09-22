@@ -10,8 +10,6 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/niconical/ogx/dialect"
-
 	"github.com/niconical/ogx/dialect/feature"
 	"github.com/niconical/ogx/internal"
 	"github.com/niconical/ogx/schema"
@@ -157,92 +155,6 @@ func (q *SelectQuery) WhereDeleted() *SelectQuery {
 
 func (q *SelectQuery) WhereAllWithDeleted() *SelectQuery {
 	q.whereAllWithDeleted()
-	return q
-}
-
-//------------------------------------------------------------------------------
-
-func (q *SelectQuery) UseIndex(indexes ...string) *SelectQuery {
-	if q.db.dialect.Name() == dialect.MySQL {
-		q.addUseIndex(indexes...)
-	}
-	return q
-}
-
-func (q *SelectQuery) UseIndexForJoin(indexes ...string) *SelectQuery {
-	if q.db.dialect.Name() == dialect.MySQL {
-		q.addUseIndexForJoin(indexes...)
-	}
-	return q
-}
-
-func (q *SelectQuery) UseIndexForOrderBy(indexes ...string) *SelectQuery {
-	if q.db.dialect.Name() == dialect.MySQL {
-		q.addUseIndexForOrderBy(indexes...)
-	}
-	return q
-}
-
-func (q *SelectQuery) UseIndexForGroupBy(indexes ...string) *SelectQuery {
-	if q.db.dialect.Name() == dialect.MySQL {
-		q.addUseIndexForGroupBy(indexes...)
-	}
-	return q
-}
-
-func (q *SelectQuery) IgnoreIndex(indexes ...string) *SelectQuery {
-	if q.db.dialect.Name() == dialect.MySQL {
-		q.addIgnoreIndex(indexes...)
-	}
-	return q
-}
-
-func (q *SelectQuery) IgnoreIndexForJoin(indexes ...string) *SelectQuery {
-	if q.db.dialect.Name() == dialect.MySQL {
-		q.addIgnoreIndexForJoin(indexes...)
-	}
-	return q
-}
-
-func (q *SelectQuery) IgnoreIndexForOrderBy(indexes ...string) *SelectQuery {
-	if q.db.dialect.Name() == dialect.MySQL {
-		q.addIgnoreIndexForOrderBy(indexes...)
-	}
-	return q
-}
-
-func (q *SelectQuery) IgnoreIndexForGroupBy(indexes ...string) *SelectQuery {
-	if q.db.dialect.Name() == dialect.MySQL {
-		q.addIgnoreIndexForGroupBy(indexes...)
-	}
-	return q
-}
-
-func (q *SelectQuery) ForceIndex(indexes ...string) *SelectQuery {
-	if q.db.dialect.Name() == dialect.MySQL {
-		q.addForceIndex(indexes...)
-	}
-	return q
-}
-
-func (q *SelectQuery) ForceIndexForJoin(indexes ...string) *SelectQuery {
-	if q.db.dialect.Name() == dialect.MySQL {
-		q.addForceIndexForJoin(indexes...)
-	}
-	return q
-}
-
-func (q *SelectQuery) ForceIndexForOrderBy(indexes ...string) *SelectQuery {
-	if q.db.dialect.Name() == dialect.MySQL {
-		q.addForceIndexForOrderBy(indexes...)
-	}
-	return q
-}
-
-func (q *SelectQuery) ForceIndexForGroupBy(indexes ...string) *SelectQuery {
-	if q.db.dialect.Name() == dialect.MySQL {
-		q.addForceIndexForGroupBy(indexes...)
-	}
 	return q
 }
 
