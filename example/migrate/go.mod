@@ -13,8 +13,8 @@ replace github.com/niconical/ogx/dialect/ogdialect => ../../dialect/ogdialect
 require (
 	gitee.com/opengauss/openGauss-connector-go-pq v1.0.4
 	github.com/niconical/ogx v1.1.7
-	github.com/niconical/ogx/dialect/ogdialect v0.0.0-20220911050444-60ec07fd608c
-	github.com/niconical/ogx/extra/ogxdebug v0.0.0-20220911050444-60ec07fd608c
+	github.com/niconical/ogx/dialect/ogdialect v0.0.0-20220919124747-5b7974d255c6
+	github.com/niconical/ogx/extra/ogxdebug v0.0.0-20220919124747-5b7974d255c6
 	github.com/urfave/cli/v2 v2.16.3
 )
 
@@ -31,7 +31,7 @@ require (
 	github.com/vmihailenco/tagparser/v2 v2.0.0 // indirect
 	github.com/xrash/smetrics v0.0.0-20201216005158-039620a65673 // indirect
 	golang.org/x/crypto v0.0.0-20220829220503-c86fa9a7ed90 // indirect
-	golang.org/x/sys v0.0.0-20220913175220-63ea55921009 // indirect
+	golang.org/x/sys v0.0.0-20220919091848-fb04ddd9f9c8 // indirect
 	golang.org/x/text v0.3.7 // indirect
 	golang.org/x/xerrors v0.0.0-20220907171357-04be3eba64a2 // indirect
 )
